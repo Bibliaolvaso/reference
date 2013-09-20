@@ -1,5 +1,5 @@
-# reference
+# Bible Reference Parser
 
-[![Build Status](https://secure.travis-ci.org/LacKac/reference.png?branch=master)](http://travis-ci.org/LacKac/reference)
+[![Build Status](https://secure.travis-ci.org/bibliaolvaso/reference.png?branch=master)](http://travis-ci.org/bibliaolvaso/reference)
 
-It does this one thing really awesome! boyah!
+Currently only for Hungarian translations.
