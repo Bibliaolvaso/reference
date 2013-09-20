@@ -1,0 +1,9 @@
+{
+  "name": "reference",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "qunit": "~1.11.0"
+  }
+}
+
