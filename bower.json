@@ -1,6 +1,7 @@
 {
   "name": "reference",
   "version": "0.0.1",
+  "main": "dist/reference.js",
   "dependencies": {},
   "devDependencies": {
     "qunit": "~1.11.0"
