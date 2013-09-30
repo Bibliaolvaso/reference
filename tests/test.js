@@ -109,16 +109,10 @@
         (function(id, ref) {
           var ex = "'" + ref + "'";
           while (ex.length < 18) ex += " ";
-          if (id === 'undefined') {
-            test(ex + ' -> undefined', function() {
-              strictEqual(Reference.resolve(this.bible, ref), undefined);
-            });
-          } else {
-            test(ex + ' -> ' + id, function() {
-              var bibleRef = Reference.resolve(this.bible, ref);
-              equal(bibleRef.id, id);
-            });
-          }
+          test(ex + ' -> ' + id, function() {
+            var bibleRef = Reference.resolve(this.bible, ref);
+            equal(bibleRef.id, id);
+          });
         })(id, ref);
       }
     }
@@ -146,8 +140,7 @@
     karoli_48005: ["48/5", "Gal 5", "Galata 5", "Galatzia 5"],
     karoli_55004: ["55/4", "2Tim 4", "2 Timotheus 4", "2 Timóteus 4"],
     karoli_61003: ["61/3", "2Pét 3", "2 Péter 3", "2Pt 3"],
-    karoli_66022: ["66/22", "Jel 22"],
-    'undefined':  ["0/0", "1/0", "1Móz 0", "5/35", "5Móz 35", "Foo 1", "Je 1"]
+    karoli_66022: ["66/22", "Jel 22"]
   });
 
   module(".resolve('ujforditas', ...)", {
@@ -172,8 +165,7 @@
     ujforditas_48005: ["48/5", "Gal 5", "Galata 5", "Galatzia 5"],
     ujforditas_55004: ["55/4", "2Tim 4", "2 Timotheus 4", "2 Timóteus 4"],
     ujforditas_61003: ["61/3", "2Pét 3", "2 Péter 3", "2Pt 3"],
-    ujforditas_66022: ["66/22", "Jel 22"],
-    'undefined':      ["0/0", "1/0", "1Móz 0", "5/35", "5Móz 35", "Foo 1", "Je 1"]
+    ujforditas_66022: ["66/22", "Jel 22"]
   });
 
 
@@ -188,6 +180,21 @@
         strictEqual(resolvedAbbr, abbr);
       }
     });
+  });
+
+  module('.resolve invalid inputs');
+
+  test("returns undefined for invalid input", function() {
+    strictEqual(Reference.resolve('x',      "Ruth 1"),  undefined);
+    strictEqual(Reference.resolve('karoli', "x"),       undefined);
+    strictEqual(Reference.resolve('karoli', "Ruth 1x"), undefined);
+    strictEqual(Reference.resolve('karoli', "0/0"),     undefined);
+    strictEqual(Reference.resolve('karoli', "1/0"),     undefined);
+    strictEqual(Reference.resolve('karoli', "1Móz 0"),  undefined);
+    strictEqual(Reference.resolve('karoli', "5/35"),    undefined);
+    strictEqual(Reference.resolve('karoli', "5Móz 35"), undefined);
+    strictEqual(Reference.resolve('karoli', "Foo 1"),   undefined);
+    strictEqual(Reference.resolve('karoli', "Je 1"),    undefined);
   });
 
 }());
