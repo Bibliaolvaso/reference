@@ -1,4 +1,4 @@
-/*! Bible Reference Parser - v0.0.1 - 2013-09-21
+/*! Bible Reference Parser - v0.0.2 - 2013-09-30
 * https://github.com/bibliaolvaso/reference
 * Copyright (c) 2013 Laszlo Bacsi <lackac@lackac.hu>; Licensed MIT */
 (function(root) {
@@ -68,6 +68,8 @@
       chapter = parsed[2];
       verses  = parsed[3];
     }
+
+    if (!book) return;
 
     chapter = parseInt(chapter || 1);
     if (chapter === 0) return;
